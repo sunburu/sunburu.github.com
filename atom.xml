@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://sunburu.github.com/atom.xml" rel="self"/>
   <link href="http://sunburu.github.com/"/>
-  <updated>2012-03-28T23:43:39+08:00</updated>
+  <updated>2012-03-28T23:46:56+08:00</updated>
   <id>http://sunburu.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello-world]]></title>
+    <link href="http://sunburu.github.com/blog/2012/03/28/hello-world/"/>
+    <updated>2012-03-28T23:46:00+08:00</updated>
+    <id>http://sunburu.github.com/blog/2012/03/28/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
