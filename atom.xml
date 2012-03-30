@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://sunburu.github.com/atom.xml" rel="self"/>
   <link href="http://sunburu.github.com/"/>
-  <updated>2012-03-28T23:46:56+08:00</updated>
+  <updated>2012-03-30T16:56:00+08:00</updated>
   <id>http://sunburu.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
@@ -14,11 +14,125 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Hello-world]]></title>
-    <link href="http://sunburu.github.com/blog/2012/03/28/hello-world/"/>
-    <updated>2012-03-28T23:46:00+08:00</updated>
-    <id>http://sunburu.github.com/blog/2012/03/28/hello-world</id>
-    <content type="html"><![CDATA[
+    <title type="html"><![CDATA[Hello World]]></title>
+    <link href="http://sunburu.github.com/blog/2012/03/30/hello-world/"/>
+    <updated>2012-03-30T16:11:00+08:00</updated>
+    <id>http://sunburu.github.com/blog/2012/03/30/hello-world</id>
+    <content type="html"><![CDATA[<p>前言 ： 第一次用 otcopress, 先学习一下常用的markdown语法吧。</p>
+
+<h2>几种用Octopress 贴贴HelloWorld的代码</h2>
+
+<h3>Backtick Code Blocks</h3>
+
+<p>Syntax</p>
+
+<pre><code>``` [language] [title] [url] [link text]
+code snippet
+```
+</code></pre>
+
+<p>Example (plain)</p>
+
+<pre><code>```
+$ sudo make me a sandwich
+```
+</code></pre>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo make me a sandwich</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Gist Embedding</h3>
+
+<p>Syntax</p>
+
+<pre><code>    Liquid error: bad URI(is not URI?): https://raw.github.com/gist//[filename]
+</code></pre>
+
+<p>Example</p>
+
+<div><script src='https://gist.github.com/996818.js?file='></script>
+<noscript><pre><code>@@ -590,7 +590,7 @@ class SpritesTest &lt; Test::Unit::TestCase
+  it &quot;should generate a sprite from nested folders&quot; do
+    css = render &lt;&lt;-SCSS
+-     @import &quot;nested/*.png&quot;;
++     @import &quot;nested/**/*.png&quot;;
+      @include all-nested-sprites;
+    SCSS
+    assert_correct css, &lt;&lt;-CSS</code></pre></noscript></div>
+
+
+<h3>Include Code Snippets</h3>
+
+<p>Syntax</p>
+
+<pre><code>File /home/Liu/git/octopress/source/downloads/code/path/to/file could not be found
+</code></pre>
+
+<p>Example 1</p>
+
+<p>This includes a file from >source/downloads/code/test.js .</p>
+
+<pre><code>Liquid error: Could not open library 'lib.so': lib.so: cannot open shared object file: No such file or directory
+</code></pre>
+
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<p>Example 2</p>
+
+<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+</code></pre>
+
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<p>Example 3 (Force Highlighting)</p>
+
+<pre><code>File /home/Liu/git/octopress/source/downloads/code/test.coffee could not be found
+</code></pre>
+
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<h3>Inline Code Blocks</h3>
+
+<p>Syntax</p>
+
+<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+</code></pre>
+
+<p>Example 1</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Awesome code snippet</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Awesome code snippet</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Example 2</p>
+
+<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+</code></pre>
+
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<p>Example 3</p>
+
+<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+</code></pre>
+
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<p>Example 4 (Force Highlighting)</p>
+
+<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+</code></pre>
+
+<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+<p>he last argument >link_text is optional. You may want to link to a source for download file, or documentation on some other site.</p>
 ]]></content>
   </entry>
   
