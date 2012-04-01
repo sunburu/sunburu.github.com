@@ -9,8 +9,9 @@
   <meta name="author" content="Your Name">
 
   
-  <meta name="description" content="git中branch有三种类型： local branch 本地分支，就是我们平常操作的分支，git中默认是master分支
-可以通过 git branch b1 来建立本地分支，通过 git checkout b1 来切换分支 tracking branch A 'tracking branch &hellip;">
+  <meta name="description" content="准备尝试一下 Octopress， 写一下大概的建立步骤吧。 准备事项 首先就是 Octopress 的官方博客啦。
+其他的一些参考连接，比如说这个 还有这个比较全 然后就是安装环境了，官方博客有比较详细的说明.
+还有就是markdown 语法，这个得学习一下，不然不知道怎么写…… &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,7 +72,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/03/30/git-branch-types/">Git Branch Types</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/04/01/octopress-how-to/">Octopress How To</a></h1>
     
     
       <p class="meta">
@@ -87,74 +88,30 @@
   
 
 
-<time datetime="2012-03-30T23:58:00+08:00" pubdate data-updated="true">Mar 30<span>th</span>, 2012</time>
+<time datetime="2012-04-01T18:00:00+08:00" pubdate data-updated="true">Apr 1<span>st</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><pre><code>git中branch有三种类型：
-</code></pre>
+  <div class="entry-content"><p>准备尝试一下 Octopress， 写一下大概的建立步骤吧。</p>
 
-<ol>
-<li>local branch</li>
-</ol>
+<h2>准备事项</h2>
 
+<p>首先就是 Octopress 的<a href="http://octopress.org/">官方博客</a>啦。
+其他的一些参考连接，比如说<a href="http://www.yangzhiping.com/tech/octopress.html">这个</a> 还有<a href="http://hopes4.me/">这个比较全</a></p>
 
-<p>本地分支，就是我们平常操作的分支，git中默认是master分支<br/>
-可以通过 git branch  b1 来建立本地分支，通过 git checkout b1 来切换分支</p>
+<p>然后就是安装环境了，<a href="http://octopress.org/">官方博客</a>有比较详细的说明.
+还有就是markdown 语法，这个得学习一下，不然不知道怎么写……
+顺便推荐一下chromte下的markdown 编辑插件 <a href="">MaDe</a>，很好用，哈哈，名字也很霸气。
+学markdown的语法的话可以去<a href="http://daringfireball.net/projects/markdown/syntax">官方网站</a>或者<a href="http://xbeta.org/wiki/show/Markdown">这里</a> 或者 <a href="http://0x3f.org/?p=379">中文的一个介绍</a></p>
 
-<ol>
-<li><p>tracking branch</p>
+<h2>开始搭建</h2>
 
-<pre><code> A 'tracking branch' in Git is a local branch that is connected to a remote branch. 
- When you pull on that branch, it automatically pulls to the remote branch that it is connected with.
-</code></pre></li>
-</ol>
+<h2>参考连接</h2>
 
-
-<p>跟踪分支是一种和远程分支有直接联系的本地分支(远程分支的本地书签、别名)，跟踪分支是一种本地分支！</p>
-
-<p>当我们在跟踪分支上使用git pull命令，会自动从相应的remote branch上fetch，然后在merge到该分支上.<br/>
-如果我们想在跟踪分支上直接使用git push命令，让它自动push到对应的remote branch上.<br/>
-还需要设置push的默认行为：</p>
-
-<pre><code>git config push.default tracking
-</code></pre>
-
-<p>当我们使用git clone命令后，会自动在本地建立一个master的分支来跟踪origin/master.<br/>
-我们也可以使用:</p>
-
-<pre><code>git checkout -b b1 origin/master
-</code></pre>
-
-<p>或者</p>
-
-<pre><code>git checkout --track -b develop   origin/develop
-</code></pre>
-
-<p>命令来手工新建一个跟踪分支develop，并切换到该分支上(该本地develop 对应origin/develop)<br/>
-如果我们想把已经存在的一个分支b2转换成一个tracking branch，需要</p>
-
-<pre><code>git config branch.b2.remote origin
-git config branch.b2.merge refs/heads/master
-</code></pre>
-
-<p>或者，我们手工修改~/.git/config文件.<br/>
-下面是一个tracking branch的配置信息 :</p>
-
-<pre><code>[branch "master"]
-    remote = origin
-    merge = refs/heads/master
-</code></pre>
-
-<ol>
-<li>remote branch</li>
-</ol>
-
-
-<p>它实际上是指向远端服务器的某个分支，用来跟踪远程分支的变化，  也即以前提到过的origin/master分支</p>
+<p><a href="http://hopes4.me/blog/post-octopress-via-sh-script/">Octopress 脚本</a></p>
 </div>
   
   
@@ -238,7 +195,7 @@ $ sudo make me a sandwich
 
 <p>Syntax</p>
 
-<pre><code>File /home/Leo/git/octopress/source/downloads/code/path/to/file could not be found
+<pre><code>File /home/Liu/git/octopress/source/downloads/code/path/to/file could not be found
 </code></pre>
 
 <p>Example 1</p>
@@ -259,7 +216,7 @@ $ sudo make me a sandwich
 
 <p>Example 3 (Force Highlighting)</p>
 
-<pre><code>File /home/Leo/git/octopress/source/downloads/code/test.coffee could not be found
+<pre><code>File /home/Liu/git/octopress/source/downloads/code/test.coffee could not be found
 </code></pre>
 
 <p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
@@ -325,7 +282,7 @@ $ sudo make me a sandwich
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/03/30/git-branch-types/">Git Branch types</a>
+        <a href="/blog/2012/04/01/octopress-how-to/">Octopress How To</a>
       </li>
     
       <li class="post">
