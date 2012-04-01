@@ -24,4 +24,6 @@ categories:
 
 [Octopress 脚本](http://hopes4.me/blog/post-octopress-via-sh-script/)
 
+[Octopress config](http://colors4.us/blog/2012/01/08/octopressbo-ke-cong-ling-kai-shi-iii/)
+
 [官方博客]:http://octopress.org/
