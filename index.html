@@ -112,6 +112,104 @@
 <h2>参考连接</h2>
 
 <p><a href="http://hopes4.me/blog/post-octopress-via-sh-script/">Octopress 脚本</a></p>
+
+<p><a href="http://colors4.us/blog/2012/01/08/octopressbo-ke-cong-ling-kai-shi-iii/">Octopress config</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/03/30/git-branch-types/">Git Branch Types</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-03-30T23:58:00+08:00" pubdate data-updated="true">Mar 30<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>git中branch有三种类型：
+</code></pre>
+
+<ol>
+<li>local branch</li>
+</ol>
+
+
+<p>本地分支，就是我们平常操作的分支，git中默认是master分支<br/>
+可以通过 git branch  b1 来建立本地分支，通过 git checkout b1 来切换分支</p>
+
+<ol>
+<li><p>tracking branch</p>
+
+<pre><code> A 'tracking branch' in Git is a local branch that is connected to a remote branch. 
+ When you pull on that branch, it automatically pulls to the remote branch that it is connected with.
+</code></pre></li>
+</ol>
+
+
+<p>跟踪分支是一种和远程分支有直接联系的本地分支(远程分支的本地书签、别名)，跟踪分支是一种本地分支！</p>
+
+<p>当我们在跟踪分支上使用git pull命令，会自动从相应的remote branch上fetch，然后在merge到该分支上.<br/>
+如果我们想在跟踪分支上直接使用git push命令，让它自动push到对应的remote branch上.<br/>
+还需要设置push的默认行为：</p>
+
+<pre><code>git config push.default tracking
+</code></pre>
+
+<p>当我们使用git clone命令后，会自动在本地建立一个master的分支来跟踪origin/master.<br/>
+我们也可以使用:</p>
+
+<pre><code>git checkout -b b1 origin/master
+</code></pre>
+
+<p>或者</p>
+
+<pre><code>git checkout --track -b develop   origin/develop
+</code></pre>
+
+<p>命令来手工新建一个跟踪分支develop，并切换到该分支上(该本地develop 对应origin/develop)<br/>
+如果我们想把已经存在的一个分支b2转换成一个tracking branch，需要</p>
+
+<pre><code>git config branch.b2.remote origin
+git config branch.b2.merge refs/heads/master
+</code></pre>
+
+<p>或者，我们手工修改~/.git/config文件.<br/>
+下面是一个tracking branch的配置信息 :</p>
+
+<pre><code>[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+</code></pre>
+
+<ol>
+<li>remote branch</li>
+</ol>
+
+
+<p>它实际上是指向远端服务器的某个分支，用来跟踪远程分支的变化，  也即以前提到过的origin/master分支</p>
 </div>
   
   
@@ -202,30 +300,100 @@ $ sudo make me a sandwich
 
 <p>This includes a file from >source/downloads/code/test.js .</p>
 
-<pre><code>Liquid error: Could not open library 'lib.so': lib.so: cannot open shared object file: No such file or directory
+<pre><code>&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;figcaption&gt;&lt;span&gt; (hello.c)&lt;/span&gt; &lt;a href='/downloads/code/hello.c'&gt;download&lt;/a&gt;&lt;/figcaption&gt;
 </code></pre>
 
-<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+<p> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include   &lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<figure class='code'><figcaption><span> (hello.c)</span> <a href='/downloads/code/hello.c'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include   &lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Example 2</p>
 
-<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<pre><code>&lt;div class='bogus-wrapper'&gt;&lt;notextile&gt;&lt;figure class='code'&gt;&lt;figcaption&gt;&lt;span&gt;Add a title here (hello.c)&lt;/span&gt; &lt;a href='/downloads/code/hello.c'&gt;download&lt;/a&gt;&lt;/figcaption&gt;
 </code></pre>
 
-<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+<p> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include   &lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<figure class='code'><figcaption><span> (hello.c)</span> <a href='/downloads/code/hello.c'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include   &lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Example 3 (Force Highlighting)</p>
 
 <pre><code>File /home/Liu/git/octopress/source/downloads/code/test.coffee could not be found
 </code></pre>
 
-<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+<figure class='code'><figcaption><span> (hello.c)</span> <a href='/downloads/code/hello.c'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='c'><span class='line'><span class="cp">#include   &lt;stdio.h&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h3>Inline Code Blocks</h3>
 
 <p>Syntax</p>
 
-<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<pre><code>Liquid error: ClassNotFound: no lexer for alias 'language' found
 </code></pre>
 
 <p>Example 1</p>
@@ -242,24 +410,48 @@ $ sudo make me a sandwich
 
 <p>Example 2</p>
 
-<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
+<pre><code>Liquid error: ClassNotFound: no lexer for alias 'shell' found
 </code></pre>
 
-<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;shell&#8217; found</p>
 
 <p>Example 3</p>
 
-<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
-</code></pre>
+<figure class='code'><figcaption><span>Time to be Awesome - awesome.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Awesome!&quot;</span> <span class="k">unless</span> <span class="n">lame</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+
+
+<figure class='code'><figcaption><span>Time to be Awesome - awesome.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="nb">puts</span> <span class="s2">&quot;Awesome!&quot;</span> <span class="k">unless</span> <span class="n">lame</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Example 4 (Force Highlighting)</p>
 
-<pre><code>Liquid error: undefined method `Py_IsInitialized' for RubyPython::Python:Module
-</code></pre>
+<figure class='code'><figcaption><span>Javascript Array Syntax </span><a href='http://j.mp/pPUUmW'>MDN Documentation </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'>    <span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">arrayLength</span><span class="p">);</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">element0</span><span class="p">,</span> <span class="nx">element1</span><span class="p">,</span> <span class="p">...,</span> <span class="nx">elementN</span><span class="p">);</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>Liquid error: undefined method `Py_IsInitialized&#8217; for RubyPython::Python:Module</p>
+
+
+
+<figure class='code'><figcaption><span>Javascript Array Syntax </span><a href='http://j.mp/pPUUmW'>MDN Documentation </a></figcaption> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">arr1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">arrayLength</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">arr2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">element0</span><span class="p">,</span> <span class="nx">element1</span><span class="p">,</span> <span class="p">...,</span> <span class="nx">elementN</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>he last argument >link_text is optional. You may want to link to a source for download file, or documentation on some other site.</p>
 </div>
@@ -283,6 +475,10 @@ $ sudo make me a sandwich
     
       <li class="post">
         <a href="/blog/2012/04/01/octopress-how-to/">Octopress How To</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/03/30/git-branch-types/">Git Branch types</a>
       </li>
     
       <li class="post">
